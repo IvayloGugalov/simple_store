@@ -1,4 +1,4 @@
-import { Item } from "@/app/_types/ItemModel"
+import { Item } from '@/app/_types/ItemModel'
 
 export const ActionTypes = {
   addToCart: 'cart/ADD_TO_CART',
@@ -14,25 +14,21 @@ export type AddToCartType = {
 }
 
 export type EmptyCartType = {
-  type: typeof ActionTypes.emtpyCart,
+  type: typeof ActionTypes.emtpyCart
   payload: null
 }
 
 export type RemoveItemFromCartType = {
-  type: typeof ActionTypes.removeItemFromCart,
+  type: typeof ActionTypes.removeItemFromCart
   payload: {
     id: string
   }
 }
 
 export type DefaultCartDataStateType = {
-  items: Item[],
-  loading: boolean,
-  error?: string,
+  items: { item: Item; quantity: number }[]
+  loading: boolean
+  error?: string
 }
 
-export type Actions =
-  | AddToCartType
-  | EmptyCartType
-  | RemoveItemFromCartType
-
+export type Actions = AddToCartType | EmptyCartType | RemoveItemFromCartType

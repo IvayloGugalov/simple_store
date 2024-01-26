@@ -5,6 +5,7 @@ import { Theme } from '@radix-ui/themes'
 import './globals.css'
 
 import ReduxStoreProvider from './_providers/redux'
+import Header from './_components/Header'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,7 +23,12 @@ export default function RootLayout({
     <html lang='en'>
       <body className={inter.className}>
         <Theme>
-          <ReduxStoreProvider>{children}</ReduxStoreProvider>
+          <ReduxStoreProvider>
+            <>
+              <Header />
+              {children}
+            </>
+          </ReduxStoreProvider>
         </Theme>
       </body>
     </html>

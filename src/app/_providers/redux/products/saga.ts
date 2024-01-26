@@ -19,7 +19,7 @@ function* searchProducts({ payload }: SearchProductType) {
 }
 
 function* productSaga() {
-  yield takeLatest(ActionTypes.listProducts, getProducts)
+  yield takeEvery(ActionTypes.listProducts, getProducts)
   yield takeEvery(ActionTypes.searchProduct, searchProducts)
   // yield takeLatest(GET_PRODUCT_DETAILS_REQUEST, getProductDetails)
 }
