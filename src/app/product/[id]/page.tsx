@@ -1,4 +1,3 @@
-import * as React from 'react'
 import * as api from '@/app/_providers/redux/products/api'
 import { Box, Flex, Heading, Section, Text } from '@radix-ui/themes'
 import AddToCartButton from '@/app/_components/client-components/AddToCartButton'
@@ -15,6 +14,8 @@ async function getProduct(id: string) {
 
 export default async function Page({ params: { id } }: { params: { id: string } }) {
   const product = await getProduct(id)
+
+  if (!product) return <Heading>Not Found</Heading>
 
   return (
     <Section size={'1'}>

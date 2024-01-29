@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import '@radix-ui/themes/styles.css'
+import styles from './page.module.css'
 import { Theme } from '@radix-ui/themes'
 import './globals.css'
 
@@ -26,7 +27,9 @@ export default function RootLayout({
           <ReduxStoreProvider>
             <>
               <Header />
-              {children}
+              <main className={styles.main}>
+                <div className={styles.description}>{children}</div>
+              </main>
             </>
           </ReduxStoreProvider>
         </Theme>

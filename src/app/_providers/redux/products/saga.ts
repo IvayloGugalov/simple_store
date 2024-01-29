@@ -1,4 +1,4 @@
-import { takeEvery, put, takeLatest, call } from 'redux-saga/effects'
+import { takeEvery, put, takeLatest, call, delay } from 'redux-saga/effects'
 import * as Actions from './actions'
 import * as api from './api'
 import { ActionTypes, SearchProductType } from './types'
@@ -12,15 +12,16 @@ function* getProducts() {
 }
 
 function* searchProducts({ payload }: SearchProductType) {
+  yield delay(500)
   let result = yield call(api.searchProduct, payload.query)
   result = yield result.json()
   console.log('action is called', result)
-  yield put(Actions.productSearch(result))
+  yield put(Actions.listProductsSuccess(result))
 }
 
 function* productSaga() {
   yield takeEvery(ActionTypes.listProducts, getProducts)
-  yield takeEvery(ActionTypes.searchProduct, searchProducts)
+  yield takeLatest(ActionTypes.searchProduct, searchProducts)
   // yield takeLatest(GET_PRODUCT_DETAILS_REQUEST, getProductDetails)
 }
 

@@ -14,7 +14,7 @@ const RemoveFromCartButton = ({ product }: { product?: Item }) => {
     <Button
       style={{ cursor: 'pointer' }}
       color='crimson'
-      variant='ghost'
+      variant='soft'
       onClick={() => dispatch(removeFromCart(product.id))}
     >
       Remove from cart

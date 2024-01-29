@@ -13,7 +13,7 @@ const AddToCartButton = ({ product, title }: { product?: Item, title?: string })
   return (
     <Button
       style={{ cursor: 'pointer' }}
-      variant='ghost'
+      variant='soft'
       onClick={() => dispatch(addToCart(product))}
     >
       {title ?? 'Add to cart'}

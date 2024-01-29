@@ -1,3 +1,3 @@
 export const numberFormatByThousands = (number: number) => (
-  number.toLocaleString(navigator.language, { minimumFractionDigits: 2 })
+  number.toLocaleString('en-US', { minimumFractionDigits: 2 })
 )
