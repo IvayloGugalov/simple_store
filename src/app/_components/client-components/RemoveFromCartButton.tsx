@@ -1,9 +1,10 @@
 'use client'
 import * as React from 'react'
 import { Button } from '@radix-ui/themes'
-import { removeFromCart } from '@/app/_providers/redux/cart/actions'
-import { useAppDispatch } from '@/app/_providers/redux/store'
-import { Item } from '@/app/_types/ItemModel'
+
+import { removeFromCart } from '@_redux/cart/actions'
+import { useAppDispatch } from '@_redux/store'
+import { type Item } from '@_types/ItemModel'
 
 const RemoveFromCartButton = ({ product }: { product?: Item }) => {
   const dispatch = useAppDispatch()

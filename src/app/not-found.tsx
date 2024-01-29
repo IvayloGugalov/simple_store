@@ -1,5 +1,5 @@
-import { Box, Flex, Heading, Separator, Text } from '@radix-ui/themes'
 import React from 'react'
+import { Box, Flex, Heading, Separator, Text } from '@radix-ui/themes'
 
 const NotFound = () => {
   return (
@@ -9,10 +9,12 @@ const NotFound = () => {
         align={'center'}
         gap={'4'}
         width={'100%'}
-        height={'100%'}
-      >
+        height={'100%'}>
         <Heading>404</Heading>
-        <Separator style={{ backgroundColor: 'black', height: '2rem' }} orientation='vertical' />
+        <Separator
+          style={{ backgroundColor: 'black', height: '2rem' }}
+          orientation='vertical'
+        />
         <Text>This page could not be found.</Text>
       </Flex>
     </Box>

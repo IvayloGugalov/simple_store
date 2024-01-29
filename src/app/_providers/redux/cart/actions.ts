@@ -1,5 +1,10 @@
-import { Item } from '@/app/_types/ItemModel'
-import { ActionTypes, AddToCartType, EmptyCartType, RemoveItemFromCartType } from './types'
+import { type Item } from '@_types/ItemModel'
+import {
+  ActionTypes,
+  AddToCartType,
+  EmptyCartType,
+  RemoveItemFromCartType,
+} from './types'
 
 export const addToCart = (item: Item): AddToCartType => {
   console.log('action is called', item)

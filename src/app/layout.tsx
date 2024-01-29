@@ -1,12 +1,12 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import '@radix-ui/themes/styles.css'
-import styles from './page.module.css'
 import { Theme } from '@radix-ui/themes'
-import './globals.css'
 
-import ReduxStoreProvider from './_providers/redux'
-import Header from './_components/Header'
+import ReduxStoreProvider from '@_redux/index'
+import Header from '@_components/Header'
+import styles from './page.module.css'
+import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 

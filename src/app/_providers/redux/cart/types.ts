@@ -1,4 +1,4 @@
-import { Item } from '@/app/_types/ItemModel'
+import { type Item } from '@_types/ItemModel'
 
 export const ActionTypes = {
   addToCart: 'cart/ADD_TO_CART',

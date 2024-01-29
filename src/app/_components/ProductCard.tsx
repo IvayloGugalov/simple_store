@@ -1,9 +1,10 @@
 import Link from 'next/link'
 import { Box, Heading, Separator } from '@radix-ui/themes'
-import { numberFormatByThousands } from '../_lib/utils'
+
+import { numberFormatByThousands } from '@_lib/utils'
 import AddToCartButton from './client-components/AddToCartButton'
-import { Item } from '../_types/ItemModel'
 import ProductCardHeader from './ProductCardHeader'
+import { type Item } from '@_types/ItemModel'
 
 const ProductCard = ({ product }: { product: Item }) => {
   return (

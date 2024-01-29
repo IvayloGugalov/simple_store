@@ -1,5 +1,6 @@
-import { Item } from '../_types/ItemModel'
 import { Container, Flex } from '@radix-ui/themes'
+
+import { type Item } from '@_types/ItemModel'
 import ProductCard from './ProductCard'
 
 const ProductsLayout = ({ products }: { products?: Item[] }) => {

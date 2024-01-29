@@ -1,11 +1,10 @@
 'use client'
-
-import { Box, Flex, Heading, Section, Text } from '@radix-ui/themes'
 import React from 'react'
-import { useAppSelector } from '../_providers/redux/store'
-import { numberFormatByThousands } from '../_lib/utils'
-import RemoveFromCartButton from '../_components/client-components/RemoveFromCartButton'
-import AddToCartButton from '../_components/client-components/AddToCartButton'
+import { Box, Flex, Heading, Section, Text } from '@radix-ui/themes'
+import { useAppSelector } from '@_redux/store'
+import { numberFormatByThousands } from '@_lib/utils'
+import RemoveFromCartButton from '@_components/client-components/RemoveFromCartButton'
+import AddToCartButton from '@_components/client-components/AddToCartButton'
 
 const Page = () => {
   const { items } = useAppSelector((state) => state.cartData)
@@ -13,10 +12,7 @@ const Page = () => {
   if (items.length === 0) {
     return (
       <Section>
-        <Box
-          style={{ maxWidth: 'fit-content' }}
-          m={'auto'}
-        >
+        <Box style={{ maxWidth: 'fit-content' }} m={'auto'}>
           <Heading>Your Cart is empty!</Heading>
         </Box>
       </Section>
@@ -36,9 +32,11 @@ const Page = () => {
                 {x !== 'id' && (
                   <Flex align={'center'}>
                     <Heading
-                      style={{ textTransform: 'capitalize', width: 'fit-content' }}
-                      size='2'
-                    >
+                      style={{
+                        textTransform: 'capitalize',
+                        width: 'fit-content',
+                      }}
+                      size='2'>
                       {x}
                     </Heading>
                     <Text>: {item[x as keyof typeof item]}</Text>
@@ -47,22 +45,22 @@ const Page = () => {
               </div>
             ))}
             <Text>Quantity: {quantity}</Text>
-            <Flex
-              gap={'4'}
-              py={'2'}
-            >
+            <Flex gap={'4'} py={'2'}>
               <AddToCartButton title='Add 1 more' product={item} />
               <RemoveFromCartButton product={item} />
             </Flex>
           </>
         ))}
       </ul>
-      <Flex
-        p={'2'}
-        justify={'end'}
-      >
+      <Flex p={'2'} justify={'end'}>
         <Heading>
-          Total: ${numberFormatByThousands(items.reduce((sum, entry) => sum + entry.quantity * entry.item.price, 0))}
+          Total: $
+          {numberFormatByThousands(
+            items.reduce(
+              (sum, entry) => sum + entry.quantity * entry.item.price,
+              0,
+            ),
+          )}
         </Heading>
       </Flex>
     </Section>

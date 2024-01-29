@@ -1,5 +1,6 @@
-import * as api from '@/app/_providers/redux/products/api'
 import { Box, Flex, Heading, Section, Text } from '@radix-ui/themes'
+
+import * as api from '@_redux/products/api'
 import AddToCartButton from '@/app/_components/client-components/AddToCartButton'
 
 async function getProduct(id: string) {
@@ -12,7 +13,11 @@ async function getProduct(id: string) {
   return res.json()
 }
 
-export default async function Page({ params: { id } }: { params: { id: string } }) {
+export default async function Page({
+  params: { id },
+}: {
+  params: { id: string }
+}) {
   const product = await getProduct(id)
 
   if (!product) return <Heading>Not Found</Heading>
@@ -25,17 +30,18 @@ export default async function Page({ params: { id } }: { params: { id: string } 
         direction={'column'}
         justify={'center'}
         align={'center'}
-        style={{ maxWidth: 'fit-content' }}
-      >
+        style={{ maxWidth: 'fit-content' }}>
         <Box>
           {Object.keys(product).map((x) => (
             <div key={`${JSON.stringify(product)} - ${x}`}>
               {x !== 'id' && (
                 <Flex align={'center'}>
                   <Heading
-                    style={{ textTransform: 'capitalize', width: 'fit-content' }}
-                    size='2'
-                  >
+                    style={{
+                      textTransform: 'capitalize',
+                      width: 'fit-content',
+                    }}
+                    size='2'>
                     {x}
                   </Heading>
                   <Text>: {product[x as keyof typeof product]}</Text>

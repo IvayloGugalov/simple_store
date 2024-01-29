@@ -1,12 +1,14 @@
 'use client'
 import * as React from 'react'
-import { useAppDispatch, useAppSelector } from '@/app/_providers/redux/store'
-import { listProducts } from '../../_providers/redux/products/actions'
+import { useAppDispatch, useAppSelector } from '@_redux/store'
+import { listProducts } from '@_redux/products/actions'
 import ProductsLayout from '../ProductsLayout'
 
 const Main = () => {
   const dispatch = useAppDispatch()
-  const { products, loading } = useAppSelector((state) => state.productsReducer.productsData)
+  const { products, loading } = useAppSelector(
+    (state) => state.productsReducer.productsData,
+  )
 
   React.useEffect(() => {
     dispatch(listProducts())

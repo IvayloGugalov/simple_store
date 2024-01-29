@@ -1,11 +1,18 @@
 'use client'
 import * as React from 'react'
 import { Button } from '@radix-ui/themes'
-import { useAppDispatch } from '../../_providers/redux/store'
-import { Item } from '../../_types/ItemModel'
-import { addToCart } from '../../_providers/redux/cart/actions'
 
-const AddToCartButton = ({ product, title }: { product?: Item, title?: string }) => {
+import { type Item } from '@_types/ItemModel'
+import { useAppDispatch } from '@_redux/store'
+import { addToCart } from '@_redux/cart/actions'
+
+const AddToCartButton = ({
+  product,
+  title,
+}: {
+  product?: Item
+  title?: string
+}) => {
   const dispatch = useAppDispatch()
 
   if (!product) return <></>
@@ -14,8 +21,7 @@ const AddToCartButton = ({ product, title }: { product?: Item, title?: string })
     <Button
       style={{ cursor: 'pointer' }}
       variant='soft'
-      onClick={() => dispatch(addToCart(product))}
-    >
+      onClick={() => dispatch(addToCart(product))}>
       {title ?? 'Add to cart'}
     </Button>
   )

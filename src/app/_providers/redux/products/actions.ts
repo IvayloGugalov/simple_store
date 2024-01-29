@@ -1,14 +1,21 @@
-import { ActionTypes, ListProductsSuccessType, ListProductsType, SearchProductType } from './types'
+import {
+  ActionTypes,
+  ListProductsSuccessType,
+  ListProductsType,
+  SearchProductType,
+} from './types'
 
 export const listProducts = (): ListProductsType => ({
   type: ActionTypes.listProducts,
   payload: null,
 })
 
-export const listProductsSuccess = (products: any): ListProductsSuccessType => ({
+export const listProductsSuccess = (
+  products: any,
+): ListProductsSuccessType => ({
   type: ActionTypes.listProductsSuccess,
   payload: {
-    data: products
+    data: products,
   },
 })
 
@@ -35,4 +42,3 @@ export const productSearch = (query: string): SearchProductType => ({
 //   type: GET_PRODUCT_DETAILS_FAILURE,
 //   payload: error,
 // })
-

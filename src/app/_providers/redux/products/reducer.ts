@@ -14,7 +14,7 @@ const defaultProductsData: DefaultProductsDataStateType = {
 
 export const productsData = (
   state = defaultProductsData,
-  action: Actions
+  action: Actions,
 ): DefaultProductsDataStateType => {
   switch (action.type) {
     case ActionTypes.listProducts:

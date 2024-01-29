@@ -1,4 +1,4 @@
-import Main from '../_components/client-components/ClientProductsLayout'
+import Main from '@_components/client-components/ClientProductsLayout'
 
 const Page = () => {
   return (

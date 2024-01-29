@@ -1,4 +1,4 @@
-import { Item } from "@/app/_types/ItemModel"
+import { type Item } from '@_types/ItemModel'
 
 export const ActionTypes = {
   listProducts: 'product/PRODUCTS_LIST',
@@ -31,4 +31,7 @@ export type DefaultProductsDataStateType = {
   error?: string
 }
 
-export type Actions = ListProductsType | ListProductsSuccessType | SearchProductType
+export type Actions =
+  | ListProductsType
+  | ListProductsSuccessType
+  | SearchProductType
