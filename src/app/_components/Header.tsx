@@ -28,8 +28,12 @@ const Header = () => {
   const dispatch = useAppDispatch()
   const { items, loading } = useAppSelector((state) => state.cartData)
   const [pathQuery, setPathQuery] = React.useState('')
+  // Instead of using supressHydrationWarning as it doesn't stream back the actual items quantity after load
+  const [loadHeader, setLoadHeader] = React.useState(false)
 
-  if (loading) return <>Loading</>
+  React.useEffect(() => {
+    setLoadHeader(true)
+  }, [])
 
   React.useEffect(() => {
     const current = new URLSearchParams()
@@ -42,6 +46,8 @@ const Header = () => {
 
     router.push(`?${current.toString()}`)
   }, [pathQuery])
+
+  if (loading) return <>Loading</>
 
   return (
     <>
@@ -93,7 +99,7 @@ const Header = () => {
             <Link href='/cart'>
               <Flex gap={'2'} align={'end'}>
                 <Text as='label' weight={'medium'} size={'4'}>
-                  {items.reduce((sum, entry) => sum + entry.quantity, 0)}
+                  {loadHeader ? items.reduce((sum, entry) => sum + entry.quantity, 0) : 0}
                 </Text>
                 <Image
                   width={25}

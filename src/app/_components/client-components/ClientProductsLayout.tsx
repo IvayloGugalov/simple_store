@@ -1,5 +1,6 @@
 'use client'
 import * as React from 'react'
+
 import { useAppDispatch, useAppSelector } from '@_redux/store'
 import { listProducts } from '@_redux/products/actions'
 import ProductsLayout from '../ProductsLayout'
@@ -15,7 +16,7 @@ const Main = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  if (loading) return <></>
+  if (loading) return <>Loading...</>
 
   return <ProductsLayout products={products} />
 }

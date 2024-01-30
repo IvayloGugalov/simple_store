@@ -8,7 +8,7 @@ import {
 
 const defaultProductsData: DefaultProductsDataStateType = {
   products: [],
-  loading: false,
+  loading: true,
   error: undefined,
 }
 
@@ -17,12 +17,6 @@ export const productsData = (
   action: Actions,
 ): DefaultProductsDataStateType => {
   switch (action.type) {
-    case ActionTypes.listProducts:
-      return {
-        ...state,
-        loading: true,
-      }
-
     case ActionTypes.listProductsSuccess:
       console.log('PRODUCT_LIST condition ', action)
       const products = (action as ListProductsSuccessType).payload.data
