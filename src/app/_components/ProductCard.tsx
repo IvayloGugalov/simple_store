@@ -11,7 +11,7 @@ const ProductCard = ({ product }: { product: Item }) => {
     <Box p={'4'}>
       <ProductCardHeader productId={product.id} />
       <Separator mb='2' mt='1' size='4' />
-      <Link href={`product/${product.id}`}>
+      <Link href={`/product/${product.id}`}>
         <Heading size={'2'} style={{ textTransform: 'capitalize' }}>
           {product.name}
         </Heading>

@@ -11,7 +11,6 @@ const defaultCartData: DefaultCartDataStateType = {
     typeof window !== 'undefined'
       ? JSON.parse(window?.localStorage.getItem('cart-items') ?? '[]')
       : [],
-  loading: false,
   error: undefined,
 }
 

@@ -4,6 +4,7 @@ import * as React from 'react'
 import { useAppDispatch, useAppSelector } from '@_redux/store'
 import { listProducts } from '@_redux/products/actions'
 import ProductsLayout from '../ProductsLayout'
+import Loading from '@/app/server/loading'
 
 const Main = () => {
   const dispatch = useAppDispatch()
@@ -16,7 +17,7 @@ const Main = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  if (loading) return <>Loading...</>
+  if (loading) return <Loading />
 
   return <ProductsLayout products={products} />
 }

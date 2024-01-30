@@ -27,7 +27,6 @@ export type RemoveItemFromCartType = {
 
 export type DefaultCartDataStateType = {
   items: { item: Item; quantity: number }[]
-  loading: boolean
   error?: string
 }
 

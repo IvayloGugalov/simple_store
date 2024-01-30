@@ -26,7 +26,7 @@ const Header = () => {
   const router = useRouter()
   const pathName = usePathname()
   const dispatch = useAppDispatch()
-  const { items, loading } = useAppSelector((state) => state.cartData)
+  const { items } = useAppSelector((state) => state.cartData)
   const [pathQuery, setPathQuery] = React.useState('')
   // Instead of using supressHydrationWarning as it doesn't stream back the actual items quantity after load
   const [loadHeader, setLoadHeader] = React.useState(false)
@@ -47,8 +47,6 @@ const Header = () => {
     router.push(`?${current.toString()}`)
   }, [pathQuery])
 
-  if (loading) return <>Loading</>
-
   return (
     <>
       <Grid columns={'3'} gap={'3'} py={'4'} width={'100%'} align={'center'}>
@@ -61,10 +59,10 @@ const Header = () => {
             gap={'4'}
             width={'100%'}
             style={{ justifyContent: 'space-around' }}>
-            <Link href={'client'}>
+            <Link href={'/client'}>
               <Text>Client Fetch</Text>
             </Link>
-            <Link href={'server'}>
+            <Link href={'/server'}>
               <Text>Server Fetch</Text>
             </Link>
           </Flex>
